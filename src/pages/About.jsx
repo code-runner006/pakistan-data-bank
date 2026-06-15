@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div className="container py-5" style={{ maxWidth: 720 }}>
       <h2 className="fw-bold mb-1">About This Project</h2>
-      <p className="text-muted mb-4">Pakistan Open Data Explorer</p>
+      <p className="text-muted mb-4">Pakistan Data Bank</p>
 
       <div className="card border-0 shadow-sm p-4 mb-4">
         <h5 className="fw-semibold mb-2">What is this?</h5>

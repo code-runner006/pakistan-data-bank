@@ -9,6 +9,7 @@ export function useWorldBank(code) {
 
     const url = `https://api.worldbank.org/v2/country/PK/indicator/${code}?format=json&per_page=100`;
 
+    dispatch({ type: "SET_LOADING", payload: true });
     fetch(url)
       .then((res) => res.json())
       .then((json) => {

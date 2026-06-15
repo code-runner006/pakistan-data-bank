@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-md navbar-dark bg-success px-4 py-3">
       <span className="navbar-brand fw-bold fs-5">
         <MdBarChart size={24} className="me-2" />
-        Pakistan Data Explorer
+        Pakistan Data Bank
       </span>
 
       <button
@@ -26,7 +26,7 @@ export default function Navbar() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `nav-link ${isActive ? styles.active : "text-white-50"}`
+              `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
             Home
@@ -34,7 +34,7 @@ export default function Navbar() {
           <NavLink
             to="/explorer"
             className={({ isActive }) =>
-              `nav-link ${isActive ? styles.active : "text-white-50"}`
+              `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
             Explorer
@@ -42,7 +42,7 @@ export default function Navbar() {
           <NavLink
             to="/compare"
             className={({ isActive }) =>
-              `nav-link ${isActive ? styles.active : "text-white-50"}`
+              `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
             Compare
@@ -50,7 +50,7 @@ export default function Navbar() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `nav-link ${isActive ? styles.active : "text-white-50"}`
+              `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
             About
