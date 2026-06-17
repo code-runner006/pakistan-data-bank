@@ -1,5 +1,3 @@
-import styles from "./StatCard.module.css";
-
 export default function StatCard({ label, value, unit, year }) {
   const formatted =
     value >= 1e9

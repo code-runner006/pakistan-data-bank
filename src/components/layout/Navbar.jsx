@@ -32,20 +32,20 @@ export default function Navbar() {
             Home
           </NavLink>
           <NavLink
-            to="/explorer"
+            to="/trends"
             className={({ isActive }) =>
               `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
-            Explorer
+            Trends
           </NavLink>
           <NavLink
-            to="/compare"
+            to="/analysis"
             className={({ isActive }) =>
               `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
             }
           >
-            Compare
+            Analysis
           </NavLink>
           <NavLink
             to="/about"

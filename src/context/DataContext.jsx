@@ -23,6 +23,7 @@ function dataReducer(state, action) {
       };
 
     case "SET_CODE":
+      return { ...state, selectedCode: action.payload };
 
     default:
       return state;

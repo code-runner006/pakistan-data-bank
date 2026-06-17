@@ -42,7 +42,7 @@ export default function Home() {
           Explore decades of Pakistan's economic, social, and demographic data
           through interactive visualisations.
         </p>
-        <a href="/explorer" className="btn btn-success px-4 mt-2">
+        <a href="/trends" className="btn btn-success px-4 mt-2">
           Explore Data →
         </a>
       </div>

@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import Home from "./pages/Home";
-import Explorer from "./pages/Explorer";
-import Compare from "./pages/Compare";
 import About from "./pages/About";
+import Analysis from "./pages/Analysis.jsx";
+import Trends from "./pages/Trends.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/explorer", element: <Explorer /> },
-      { path: "/compare", element: <Compare /> },
+      { path: "/trends", element: <Trends /> },
+      { path: "/analysis", element: <Analysis /> },
       { path: "/about", element: <About /> },
     ],
   },
