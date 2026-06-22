@@ -7,6 +7,7 @@ import LineChartPanel from "../components/charts/LineChartPanel";
 import BarChartPanel from "../components/charts/BarChartPanel";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorMessage from "../components/ui/ErrorMessage";
+import DataTable from "../components/ui/DataTable";
 import { INDICATORS } from "../constants/indicators";
 
 export default function Trends() {
@@ -70,6 +71,12 @@ export default function Trends() {
         >
           Bar
         </button>
+        <button
+          className={`btn ${chartType === "table" ? "btn-success" : "btn-outline-success"}`}
+          onClick={() => setChartType("table")}
+        >
+          Table
+        </button>
       </div>
 
       {loading && data.length === 0 && <LoadingSpinner />}
@@ -82,7 +89,7 @@ export default function Trends() {
           </div>
         ) : (
           <div className="card border-0 shadow-sm p-3">
-            {chartType === "line" ? (
+            {chartType === "line" && (
               <LineChartPanel
                 data={data}
                 label={currentIndicator?.label}
@@ -90,8 +97,18 @@ export default function Trends() {
                 startYear={startYear}
                 endYear={endYear}
               />
-            ) : (
+            )}
+            {chartType === "bar" && (
               <BarChartPanel
+                data={data}
+                label={currentIndicator?.label}
+                unit={currentIndicator?.unit}
+                startYear={startYear}
+                endYear={endYear}
+              />
+            )}
+            {chartType === "table" && (
+              <DataTable
                 data={data}
                 label={currentIndicator?.label}
                 unit={currentIndicator?.unit}

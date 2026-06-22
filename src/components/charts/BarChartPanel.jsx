@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useYearFilter } from "../../hooks/useYearFilter";
 import {
   BarChart,
   Bar,
@@ -17,10 +17,7 @@ export default function BarChartPanel({
   startYear,
   endYear,
 }) {
-  const sliced = useMemo(
-    () => data.filter((d) => d.year >= startYear && d.year <= endYear),
-    [data, startYear, endYear],
-  );
+  const sliced = useYearFilter(data, startYear, endYear);
 
   return (
     <div>
