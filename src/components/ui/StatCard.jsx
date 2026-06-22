@@ -1,18 +1,11 @@
-export default function StatCard({ label, value, unit, year }) {
-  const formatted =
-    value >= 1e9
-      ? (value / 1e9).toFixed(2) + " B"
-      : value >= 1e6
-        ? (value / 1e6).toFixed(2) + " M"
-        : value >= 1e3
-          ? (value / 1e3).toFixed(2) + " K"
-          : value.toFixed(2);
+import { formatValue } from "../../utils/formatValue";
 
+export default function StatCard({ label, value, unit, year }) {
   return (
     <div className="card border-0 shadow-sm h-100">
       <div className="card-body">
         <p className="text-muted small mb-2">{label}</p>
-        <h3 className="fw-bold text-success mb-1">{formatted}</h3>
+        <h3 className="fw-bold text-success mb-1">{formatValue(value)}</h3>
         <span className="badge bg-success-subtle text-success-emphasis">
           {unit}
         </span>

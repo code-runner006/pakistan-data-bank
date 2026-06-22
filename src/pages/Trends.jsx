@@ -3,8 +3,10 @@ import { DataContext } from "../context/DataContext";
 import { useWorldBank } from "../hooks/useWorldBank";
 import IndicatorSelect from "../components/controls/IndicatorSelect";
 import YearRangeSlider from "../components/controls/YearRangeSlider";
+import LineChartPanel from "../components/charts/LineChartPanel";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorMessage from "../components/ui/ErrorMessage";
+import { INDICATORS } from "../constants/indicators";
 
 export default function Trends() {
   const { state, dispatch } = useContext(DataContext);
@@ -20,6 +22,10 @@ export default function Trends() {
     setStartYear(minYear);
     setEndYear(maxYear);
   }, [minYear, maxYear]);
+
+  const currentIndicator = INDICATORS.find(
+    (i) => i.code === state.selectedCode,
+  );
 
   return (
     <div className="container-lg py-4">
@@ -51,11 +57,17 @@ export default function Trends() {
 
       {loading && data.length === 0 && <LoadingSpinner />}
       {error && <ErrorMessage message={error} />}
+
       {data.length > 0 && (
-        <p className="text-muted">
-          Data loaded — {data.length} years available. Showing {startYear} to{" "}
-          {endYear}.
-        </p>
+        <div className="card border-0 shadow-sm p-3">
+          <LineChartPanel
+            data={data}
+            label={currentIndicator?.label}
+            unit={currentIndicator?.unit}
+            startYear={startYear}
+            endYear={endYear}
+          />
+        </div>
       )}
     </div>
   );
