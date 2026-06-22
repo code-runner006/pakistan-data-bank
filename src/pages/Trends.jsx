@@ -4,6 +4,7 @@ import { useWorldBank } from "../hooks/useWorldBank";
 import IndicatorSelect from "../components/controls/IndicatorSelect";
 import YearRangeSlider from "../components/controls/YearRangeSlider";
 import LineChartPanel from "../components/charts/LineChartPanel";
+import BarChartPanel from "../components/charts/BarChartPanel";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorMessage from "../components/ui/ErrorMessage";
 import { INDICATORS } from "../constants/indicators";
@@ -17,6 +18,7 @@ export default function Trends() {
 
   const [startYear, setStartYear] = useState(minYear);
   const [endYear, setEndYear] = useState(maxYear);
+  const [chartType, setChartType] = useState("line");
 
   useEffect(() => {
     setStartYear(minYear);
@@ -55,20 +57,50 @@ export default function Trends() {
         maxYear={maxYear}
       />
 
+      <div className="d-flex gap-2 mb-3">
+        <button
+          className={`btn ${chartType === "line" ? "btn-success" : "btn-outline-success"}`}
+          onClick={() => setChartType("line")}
+        >
+          Line
+        </button>
+        <button
+          className={`btn ${chartType === "bar" ? "btn-success" : "btn-outline-success"}`}
+          onClick={() => setChartType("bar")}
+        >
+          Bar
+        </button>
+      </div>
+
       {loading && data.length === 0 && <LoadingSpinner />}
       {error && <ErrorMessage message={error} />}
 
-      {data.length > 0 && (
-        <div className="card border-0 shadow-sm p-3">
-          <LineChartPanel
-            data={data}
-            label={currentIndicator?.label}
-            unit={currentIndicator?.unit}
-            startYear={startYear}
-            endYear={endYear}
-          />
-        </div>
-      )}
+      {data.length > 0 &&
+        (startYear > endYear ? (
+          <div className="alert alert-warning mb-0">
+            Invalid range — "From" year cannot be greater than "To" year.
+          </div>
+        ) : (
+          <div className="card border-0 shadow-sm p-3">
+            {chartType === "line" ? (
+              <LineChartPanel
+                data={data}
+                label={currentIndicator?.label}
+                unit={currentIndicator?.unit}
+                startYear={startYear}
+                endYear={endYear}
+              />
+            ) : (
+              <BarChartPanel
+                data={data}
+                label={currentIndicator?.label}
+                unit={currentIndicator?.unit}
+                startYear={startYear}
+                endYear={endYear}
+              />
+            )}
+          </div>
+        ))}
     </div>
   );
 }
