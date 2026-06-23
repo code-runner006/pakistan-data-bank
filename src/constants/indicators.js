@@ -9,5 +9,4 @@ export const INDICATORS = [
   { code: "SH.DYN.MORT",      label: "Mortality Rate",    unit: "per 1000"           },
   { code: "SP.POP.TOTL",      label: "Total Population",  unit: "People"             },
   { code: "SP.URB.TOTL.IN.ZS", label: "Urban Population", unit: "% of Total"         },
-  { code: "IT.NET.USER.ZS",   label: "Internet Users",    unit: "% of population"    },
 ];

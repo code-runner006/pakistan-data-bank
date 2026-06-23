@@ -8,6 +8,7 @@ import BarChartPanel from "../components/charts/BarChartPanel";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorMessage from "../components/ui/ErrorMessage";
 import DataTable from "../components/ui/DataTable";
+import InsightCard from "../components/ui/InsightCard";
 import { INDICATORS } from "../constants/indicators";
 
 export default function Trends() {
@@ -88,35 +89,45 @@ export default function Trends() {
             Invalid range — "From" year cannot be greater than "To" year.
           </div>
         ) : (
-          <div className="card border-0 shadow-sm p-3">
-            {chartType === "line" && (
-              <LineChartPanel
-                data={data}
-                label={currentIndicator?.label}
-                unit={currentIndicator?.unit}
-                startYear={startYear}
-                endYear={endYear}
-              />
-            )}
-            {chartType === "bar" && (
-              <BarChartPanel
-                data={data}
-                label={currentIndicator?.label}
-                unit={currentIndicator?.unit}
-                startYear={startYear}
-                endYear={endYear}
-              />
-            )}
-            {chartType === "table" && (
-              <DataTable
-                data={data}
-                label={currentIndicator?.label}
-                unit={currentIndicator?.unit}
-                startYear={startYear}
-                endYear={endYear}
-              />
-            )}
-          </div>
+          <>
+            <div className="card border-0 shadow-sm p-3">
+              {chartType === "line" && (
+                <LineChartPanel
+                  data={data}
+                  label={currentIndicator?.label}
+                  unit={currentIndicator?.unit}
+                  startYear={startYear}
+                  endYear={endYear}
+                />
+              )}
+              {chartType === "bar" && (
+                <BarChartPanel
+                  data={data}
+                  label={currentIndicator?.label}
+                  unit={currentIndicator?.unit}
+                  startYear={startYear}
+                  endYear={endYear}
+                />
+              )}
+              {chartType === "table" && (
+                <DataTable
+                  data={data}
+                  label={currentIndicator?.label}
+                  unit={currentIndicator?.unit}
+                  startYear={startYear}
+                  endYear={endYear}
+                />
+              )}
+            </div>
+
+            <InsightCard
+              data={data}
+              label={currentIndicator?.label}
+              unit={currentIndicator?.unit}
+              startYear={startYear}
+              endYear={endYear}
+            />
+          </>
         ))}
     </div>
   );
