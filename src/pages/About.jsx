@@ -9,9 +9,8 @@ export default function About() {
         <p className="mb-0 text-muted">
           A React web application that visualises decades of Pakistan's
           economic, social, demographic, and environmental data sourced from the
-          World Bank Open Data API. Users can explore individual indicators,
-          filter by year range, and compare any two indicators side by side on a
-          dual-axis chart.
+          World Bank Open Data API. Users can explore individual indicators and
+          filter by year range.
         </p>
       </div>
 
@@ -36,13 +35,12 @@ export default function About() {
         <h5 className="fw-semibold mb-2">Tech Stack</h5>
         <div className="d-flex flex-wrap gap-2">
           {[
-            "React 18",
+            "React 19",
             "Vite",
-            "React Router v6",
+            "React Router v7",
             "Context API",
             "useReducer",
             "useMemo",
-            "useCallback",
             "Custom Hooks",
             "Recharts",
             "Bootstrap 5",

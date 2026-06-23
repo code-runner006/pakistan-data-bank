@@ -40,14 +40,6 @@ export default function Navbar() {
             Trends
           </NavLink>
           <NavLink
-            to="/analysis"
-            className={({ isActive }) =>
-              `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
-            }
-          >
-            Analysis
-          </NavLink>
-          <NavLink
             to="/about"
             className={({ isActive }) =>
               `nav-link ${isActive ? `text-white ${styles.active}` : "text-white-50"}`
