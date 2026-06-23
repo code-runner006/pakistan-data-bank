@@ -1,4 +1,5 @@
 import { useWorldBank } from "../hooks/useWorldBank";
+import { Link } from "react-router-dom";
 import StatCard from "../components/ui/StatCard";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import ErrorMessage from "../components/ui/ErrorMessage";
@@ -42,9 +43,9 @@ export default function Home() {
           Explore decades of Pakistan's economic, social, and demographic data
           through interactive visualisations.
         </p>
-        <a href="/trends" className="btn btn-success px-4 mt-2">
+        <Link to="/trends" className="btn btn-success px-4 mt-2">
           Explore Data →
-        </a>
+        </Link>
       </div>
 
       <h5 className="fw-semibold mb-3 text-muted">Latest Indicators</h5>
