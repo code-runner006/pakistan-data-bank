@@ -1,16 +1,49 @@
-# React + Vite
+# 🇵🇰 Pakistan Data Bank
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React web application that visualises decades of Pakistan's economic, social, and demographic data using the World Bank Open Data API. Explore key indicators across time, filter by year range, and view trends as line charts, bar charts, or raw data tables.
 
-Currently, two official plugins are available:
+**Live Demo:** [pakistan-data-bank.vercel.app](https://pakistan-data-bank.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Home** — Quick-glance stat cards showing the latest values for GDP, Population, Literacy Rate, and Inflation Rate
+- **Trends** — Pick any indicator, filter by a custom year range, and switch between Line Chart, Bar Chart, or Data Table views
+- **Auto-generated Insights** — Each indicator shows a summary of how it changed over time, including peak and lowest values
+- **Live Data Caching** — Once an indicator is fetched, it's cached in memory so switching back to it is instant with no repeated API calls
+- **Responsive Design** — Built with Bootstrap 5, works cleanly on mobile, tablet, and desktop
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **React 19** + **Vite**
+- **React Router v7** — client-side routing
+- **Context API + useReducer** — global state management and in-memory data caching
+- **Custom Hooks** — `useWorldBank` for data fetching, `useYearFilter` for shared filtering logic
+- **useMemo** — for derived/computed values (chart slicing, statistics, Y-axis scaling)
+- **Recharts** — Line and Bar chart visualisations
+- **Bootstrap 5** — layout and UI components
+- **React Icons**
+- **World Bank Open Data API** — live data source, no authentication required
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/code-runner006/pakistan-data-bank.git
+cd pakistan-data-bank
+npm install
+npm run dev
+```
+
+---
+
+## Built By
+
+**Umer Farooq Afridi**
+BS Computer Science — PUCIT, University of the Punjab
+
+[GitHub](https://github.com/code-runner006) · [LinkedIn](https://linkedin.com/in/umerfarooqafridi)
